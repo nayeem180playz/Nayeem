@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EarnWalk - Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Common Styles */
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .form-container {
+      padding: 30px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .input-group input:focus, .input-group select:focus {
+      border-color: #8e2de2;
+      outline: none;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .toggle-form {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .toggle-form a {
+      color: #8e2de2;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .error-message {
+      color: #ff4757;
+      font-size: 13px;
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    .success-message {
+      color: #2ed573;
+      font-size: 13px;
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    /* Pending Approval Styles */
+    .pending-container {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .pending-title {
+      color: #8e2de2;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .pending-message {
+      background: #f8f8f8;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .contact-info a {
+      color: #8e2de2;
+      text-decoration: none;
+    }
+
+    /* Dashboard Styles */
+    .dashboard-container {
+      display: none;
+      width: 100%;
+      max-width: 500px;
+      margin: 20px 0;
+    }
+
+    .header {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .username {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      padding: 0 20px 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px 5px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.6s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card:nth-child(6) { animation-delay: 0.6s; }
+    .card:nth-child(7) { animation-delay: 0.7s; }
+    .card:nth-child(8) { animation-delay: 0.8s; }
+    .card:nth-child(9) { animation-delay: 0.9s; }
+    .card:nth-child(10){ animation-delay: 1s; }
+    .card:nth-child(11){ animation-delay: 1.1s; }
+    .card:nth-child(12){ animation-delay: 1.2s; }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 39px;
+      height: 39px;
+    }
+
+    .card p {
+      margin: 9px 0 0;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .logout-btn {
+      background: #ff4757;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 20px auto;
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .logout-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Admin Panel Styles */
+    .admin-dashboard {
+      display: none;
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .admin-header {
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .admin-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .admin-nav {
+      display: flex;
+      background: #f8f8f8;
+      border-bottom: 1px solid #eee;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .admin-nav-item {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: 500;
+      color: #555;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .admin-nav-item.active {
+      color: #8e2de2;
+      border-bottom-color: #8e2de2;
+      background: #fff;
+    }
+
+    .admin-content {
+      padding: 20px;
+      min-height: 300px;
+    }
+
+    .admin-section {
+      display: none;
+    }
+
+    .admin-section.active {
+      display: block;
+    }
+
+    .user-list {
+      margin-top: 20px;
+    }
+
+    .user-card {
+      background: #f8f8f8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .user-info {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .user-name {
+      font-weight: 600;
+    }
+
+    .user-email {
+      font-size: 12px;
+      color: #555;
+    }
+
+    .user-status {
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 10px;
+      background: #ddd;
+      color: #333;
+    }
+
+    .user-status.pending {
+      background: #ffa502;
+      color: white;
+    }
+
+    .user-status.approved {
+      background: #2ed573;
+      color: white;
+    }
+
+    .user-status.rejected {
+      background: #ff4757;
+      color: white;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .action-btn {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .approve-btn {
+      background: #2ed573;
+      color: white;
+    }
+
+    .reject-btn {
+      background: #ff4757;
+      color: white;
+    }
+
+    .view-btn {
+      background: #3498db;
+      color: white;
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: #f8f8f8;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 600;
+      color: #8e2de2;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Work Menu Styles */
+    .work-menu-container {
+      display: none;
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .work-menu-header {
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .work-menu-content {
+      padding: 15px;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .menu-item {
+      background: #d4e9ff;
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 30px;
+      color: #333;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transform: translateX(-20px);
+      opacity: 0;
+      animation: slideIn 0.5s forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .menu-item:nth-child(1) { animation-delay: 0.1s; }
+    .menu-item:nth-child(2) { animation-delay: 0.2s; }
+    .menu-item:nth-child(3) { animation-delay: 0.3s; }
+    .menu-item:nth-child(4) { animation-delay: 0.4s; }
+    .menu-item:nth-child(5) { animation-delay: 0.5s; }
+    .menu-item:nth-child(6) { animation-delay: 0.6s; }
+    .menu-item:nth-child(7) { animation-delay: 0.7s; }
+    .menu-item:nth-child(8) { animation-delay: 0.8s; }
+    .menu-item:nth-child(9) { animation-delay: 0.9s; }
+    .menu-item:nth-child(10) { animation-delay: 1.0s; }
+
+    .menu-item:hover {
+      background: #a7ccff;
+      transition: 0.3s;
+    }
+
+    .menu-icon {
+      color: #ff2fbf;
+    }
+
+    .back-btn {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .back-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Help Line Styles */
+    .help-container {
+      display: none;
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .help-header {
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .help-content {
+      padding: 20px;
+      background: linear-gradient(to bottom right, #ff2fbf, #8e2de2);
+      color: white;
+      text-align: center;
+    }
+
+    .help-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 19px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .help-content h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .link-button {
+      display: block;
+      background: #fff;
+      color: #8e2de2;
+      margin: 10px 0;
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .link-button:hover {
+      background: #8e2de2;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .whatsapp {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .whatsapp span {
+      display: inline-block;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); color: #00ffcc; }
+    }
+
+    .name-link {
+      margin-top: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: block;
+    }
+
+    .name-link:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    /* Profile Level Styles */
+    .profile-container {
+      display: none;
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .profile-header {
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .profile-content {
+      padding: 20px;
+    }
+
+    .level-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .level-display {
+      font-size: 24px;
+      font-weight: bold;
+      color: #8e2de2;
+      margin-bottom: 10px;
+    }
+
+    .points-display {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 20px;
+      background: #f0f0f0;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      border-radius: 10px;
+      transition: width 0.5s ease;
+    }
+
+    .level-rewards {
+      margin-top: 20px;
+    }
+
+    .reward-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 10px;
+      background: #f8f8f8;
+      border-radius: 8px;
+    }
+
+    .reward-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      color: #8e2de2;
+    }
+
+    .reward-text {
+      flex: 1;
+      font-size: 14px;
+    }
+
+    .reward-achieved {
+      color: #2ed573;
+      font-weight: bold;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 500px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .stats-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .admin-nav {
+        flex-wrap: wrap;
+      }
+      
+      .admin-nav-item {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+      
+      .user-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .action-buttons {
+        align-self: flex-end;
+      }
+
+      .menu-item {
+        padding: 12px 15px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Login Container -->
+  <div class="container" id="loginContainer">
+    <div class="form-container">
+      <h2 class="title">Login</h2>
+      <div id="loginError" class="error-message"></div>
+      <div class="input-group">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" placeholder="Enter your email">
+      </div>
+      <div class="input-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter your password">
+      </div>
+      <button class="btn" id="loginBtn">Login</button>
+      <div class="toggle-form">
+        Don't have an account? <a href="#" id="showRegister">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Registration Container -->
+  <div class="container" id="registerContainer" style="display: none;">
+    <div class="form-container">
+      <h2 class="title">Registration</h2>
+      <div id="registerError" class="error-message"></div>
+      <div id="registerSuccess" class="success-message"></div>
+      
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter username">
+      </div>
+      
+      <div class="input-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your full name">
+      </div>
+      
+      <div class="input-group">
+        <label for="gender">Choose Your Gender</label>
+        <select id="gender">
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      
+      <div class="input-group">
+        <label for="education">Choose Your Education</label>
+        <select id="education">
+          <option value="">Select Education</option>
+          <option value="JSC">JSC</option>
+          <option value="SSC">SSC</option>
+          <option value="HSC">HSC</option>
+          <option value="BSc">BSc</option>
+          <option value="MSc">MSc</option>
+          <option value="NONE">NONE</option>
+        </select>
+      </div>
+      
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </div>
+      
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Create a password">
+      </div>
+      
+      <div class="input-group">
+        <label for="whatsapp">WhatsApp Number</label>
+        <input type="text" id="whatsapp" placeholder="Enter WhatsApp number">
+      </div>
+      
+      <div class="input-group">
+        <label for="referral">Referral Code (Optional)</label>
+        <input type="text" id="referral" placeholder="Enter referral code if any">
+      </div>
+      
+      <div class="input-group">
+        <label for="paymentMethod">Choose Your payment method</label>
+        <select id="paymentMethod">
+          <option value="">Select Payment Method</option>
+          <option value="Bkash">Bkash</option>
+          <option value="Nagad">Nagad</option>
+          <option value="Rocket">Rocket</option>
+          <option value="Upay">Upay</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+      
+      <div class="input-group">
+        <label for="paymentNumber">Payment Number (11 digits)</label>
+        <input type="text" id="paymentNumber" placeholder="Enter payment number">
+      </div>
+      
+      <div class="input-group">
+        <label for="transactionId">Transaction ID (TrixId)</label>
+        <input type="text" id="transactionId" placeholder="Enter transaction ID">
+      </div>
+      
+      <div class="input-group">
+        <label for="datetime">Date and Time</label>
+        <input type="datetime-local" id="datetime">
+      </div>
+      
+      <div class="input-group" style="display: flex; align-items: center;">
+        <input type="checkbox" id="agreeTerms" style="width: auto; margin-right: 10px;">
+        <label for="agreeTerms" style="margin-bottom: 0;">I agree to the terms and conditions</label>
+      </div>
+      
+      <button class="btn" id="registerBtn">Register</button>
+      <div class="toggle-form">
+        Already have an account? <a href="#" id="showLogin">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pending Approval Container -->
+  <div class="container" id="pendingContainer" style="display: none;">
+    <div class="pending-container">
+      <h2 class="pending-title">Pending Request</h2>
+      <div class="pending-message">
+        Please wait while admin reviews your registration request. Admin will approve your request within 24 hours. If you face any issues, please contact admin via WhatsApp using the number below.
+      </div>
+      <div class="contact-info">
+        Contact Admin: <a href="https://wa.me/1234567890">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container" id="dashboardContainer" style="display: none;">
+    <div class="header">
+      <div class="username" id="dashboardUsername">Welcome, User</div>
+    </div>
+    <div class="grid">
+      <a href="#" class="card" id="profileCard">
+        <img src="https://img.icons8.com/ios/50/checked-user-male.png" alt="Profile">
+        <p>Profile Level</p>
+      </a>
+
+      <a href="#" class="card" id="workCard">
+        <img src="https://img.icons8.com/ios/50/briefcase.png" alt="Work">
+        <p>My Work</p>
+      </a>
+
+      <a href="#" class="card" id="helpCard">
+        <img src="https://img.icons8.com/ios/50/help.png" alt="Help">
+        <p>Help Line</p>
+      </a>
+
+      <a href="refer.html" class="card">
+        <img src="https://img.icons8.com/ios/50/share.png" alt="Refer">
+        <p>Refer</p>
+      </a>
+
+      <a href="withdraw.html" class="card">
+        <img src="https://img.icons8.com/ios/50/money.png" alt="Withdraw">
+        <p>Withdraw</p>
+      </a>
+
+      <a href="screenshot.html" class="card">
+        <img src="https://img.icons8.com/ios/50/image.png" alt="Screenshot">
+        <p>Screenshot</p>
+      </a>
+
+      <a href="offer.html" class="card">
+        <img src="https://img.icons8.com/ios/50/email-open.png" alt="Offer">
+        <p>Offer</p>
+      </a>
+
+      <a href="history.html" class="card">
+        <img src="https://img.icons8.com/ios/50/time-machine.png" alt="History">
+        <p>History</p>
+      </a>
+
+      <a href="balance.html" class="card">
+        <img src="https://img.icons8.com/ios/50/money-bag.png" alt="Balance">
+        <p>Balance</p>
+      </a>
+
+      <a href="leaderboard.html" class="card">
+        <img src="https://img.icons8.com/ios/50/paypal.png" alt="Leaderboard">
+        <p>Leaderboard</p>
+      </a>
+
+      <a href="notice.html" class="card">
+        <img src="https://img.icons8.com/ios/50/megaphone.png" alt="Notice">
+        <p>Notice Board</p>
+      </a>
+
+      <a href="notice2.html" class="card">
+        <img src="https://img.icons8.com/ios/50/megaphone.png" alt="Notice 2">
+        <p>Notice Board</p>
+      </a>
+    </div>
+    <button class="logout-btn" id="logoutBtn">Logout</button>
+  </div>
+
+  <!-- Work Menu Container -->
+  <div class="work-menu-container" id="workMenuContainer">
+    <div class="work-menu-header">
+      My Work Menu
+    </div>
+    <div class="work-menu-content">
+      <div class="menu-item"><span class="menu-icon">??</span>1. Tiktok Like Follow</div>
+      <div class="menu-item"><span class="menu-icon">??</span>2. Gmail Work</div>
+      <div class="menu-item"><span class="menu-icon">??</span>3. Facebook Work</div>
+      <div class="menu-item"><span class="menu-icon">??</span>4. Refer Generation</div>
+      <div class="menu-item"><span class="menu-icon">??</span>5. Typing</div>
+      <div class="menu-item"><span class="menu-icon">??</span>6. Watch Video</div>
+      <div class="menu-item"><span class="menu-icon">??</span>7. VK Surfing</div>
+      <div class="menu-item"><span class="menu-icon">??</span>8. Getlike Work</div>
+      <div class="menu-item"><span class="menu-icon">??</span>9. Website Visit Work</div>
+      <div class="menu-item"><span class="menu-icon">??</span>10. Seleary</div>
+    </div>
+    <button class="back-btn" id="backToDashboardBtn">Back to Dashboard</button>
+  </div>
+
+  <!-- Help Line Container -->
+  <div class="help-container" id="helpContainer">
+    <div class="help-header">
+      Help Line
+    </div>
+    <div class="help-content">
+      <div class="help-box">
+        <h2>?? Help Line</h2>
+        <p>???? ????? ????? ????? ????? ???</p>
+        <a href="https://chat.whatsapp.com/yourgroup" class="link-button" target="_blank">Join WhatsApp Group</a>
+
+        <br/>
+        <h1>??Tainner</h1>
+
+        <!-- ? ??? ? ????? ???? WhatsApp ???? ??? -->
+        <a href="https://wa.me/8801XXXXXXXXX" target="_blank" class="name-link">
+          Mahi chy
+        </a>
+        
+        <br/>
+        <!-- ? ??? ? ????? ???? WhatsApp ???? ??? -->
+        <a href="https://wa.me/8801XXXXXXXXX" target="_blank" class="name-link">
+          Rahim chy
+        </a>
+      </div>
+      <button class="back-btn" id="backToDashboardFromHelpBtn">Back to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- Profile Level Container -->
+  <div class="profile-container" id="profileContainer">
+    <div class="profile-header">
+      Profile Level
+    </div>
+    <div class="profile-content">
+      <div class="level-container">
+        <div class="level-display" id="levelDisplay">Level 1</div>
+        <div class="points-display" id="pointsDisplay">0 Points</div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+        </div>
+      </div>
+      
+      <div class="level-rewards">
+        <h3>Level Rewards</h3>
+        <div class="reward-item">
+          <div class="reward-icon">??</div>
+          <div class="reward-text">Level 1: Start your journey (0 points)</div>
+          <div class="reward-achieved" id="level1Reward">?</div>
+        </div>
+        <div class="reward-item">
+          <div class="reward-icon">??</div>
+          <div class="reward-text">Level 2: Reach 10 points</div>
+          <div class="reward-achieved" id="level2Reward">?</div>
+        </div>
+        <div class="reward-item">
+          <div class="reward-icon">??</div>
+          <div class="reward-text">Level 3: Reach 20 points</div>
+          <div class="reward-achieved" id="level3Reward">?</div>
+        </div>
+        <div class="reward-item">
+          <div class="reward-icon">??</div>
+          <div class="reward-text">Level 4: Reach 40 points</div>
+          <div class="reward-achieved" id="level4Reward">?</div>
+        </div>
+        <div class="reward-item">
+          <div class="reward-icon">??</div>
+          <div class="reward-text">Level 5: Reach 50 points</div>
+          <div class="reward-achieved" id="level5Reward">?</div>
+        </div>
+      </div>
+      
+      <button class="back-btn" id="backToDashboardFromProfileBtn">Back to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div class="admin-dashboard" id="adminDashboard" style="display: none;">
+    <div class="admin-header">
+      <div class="admin-title">Admin Panel</div>
+      <button class="logout-btn" id="adminLogoutBtn">Logout</button>
+    </div>
+    
+    <div class="admin-nav">
+      <div class="admin-nav-item active" data-section="dashboard">Dashboard</div>
+      <div class="admin-nav-item" data-section="pending">Pending Requests</div>
+      <div class="admin-nav-item" data-section="approved">Approved Users</div>
+      <div class="admin-nav-item" data-section="rejected">Rejected Users</div>
+      <div class="admin-nav-item" data-section="all">All Users</div>
+    </div>
+    
+    <div class="admin-content">
+      <!-- Dashboard Section -->
+      <div class="admin-section active" id="dashboardSection">
+        <h2>Admin Dashboard</h2>
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-value" id="totalUsers">0</div>
+            <div class="stat-label">Total Users</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="pendingUsers">0</div>
+            <div class="stat-label">Pending Users</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="approvedUsers">0</div>
+            <div class="stat-label">Approved Users</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pending Requests Section -->
+      <div class="admin-section" id="pendingSection">
+        <h2>Pending Requests</h2>
+        <div id="pendingList" class="user-list">
+          <!-- Pending users will be populated here -->
+        </div>
+      </div>
+      
+      <!-- Approved Users Section -->
+      <div class="admin-section" id="approvedSection">
+        <h2>Approved Users</h2>
+        <div id="approvedList" class="user-list">
+          <!-- Approved users will be populated here -->
+        </div>
+      </div>
+      
+      <!-- Rejected Users Section -->
+      <div class="admin-section" id="rejectedSection">
+        <h2>Rejected Users</h2>
+        <div id="rejectedList" class="user-list">
+          <!-- Rejected users will be populated here -->
+        </div>
+      </div>
+      
+      <!-- All Users Section -->
+      <div class="admin-section" id="allSection">
+        <h2>All Users</h2>
+        <div id="allList" class="user-list">
+          <!-- All users will be populated here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+  
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAVwVzvV0eAcJ3d3X5iQGXkldWSIj4CJe0",
+      authDomain: "earnwab.firebaseapp.com",
+      databaseURL: "https://earnwab-default-rtdb.firebaseio.com",
+      projectId: "earnwab",
+      storageBucket: "earnwab.appspot.com",
+      messagingSenderId: "341915592864",
+      appId: "1:341915592864:web:f68363b7116b2a1cd741c5",
+      measurementId: "G-QNJYEQPZ1B"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const database = firebase.database();
+
+    // DOM Elements
+    const loginContainer = document.getElementById('loginContainer');
+    const registerContainer = document.getElementById('registerContainer');
+    const pendingContainer = document.getElementById('pendingContainer');
+    const dashboardContainer = document.getElementById('dashboardContainer');
+    const workMenuContainer = document.getElementById('workMenuContainer');
+    const helpContainer = document.getElementById('helpContainer');
+    const profileContainer = document.getElementById('profileContainer');
+    const adminDashboard = document.getElementById('adminDashboard');
+    
+    const showRegister = document.getElementById('showRegister');
+    const showLogin = document.getElementById('showLogin');
+    
+    const loginBtn = document.getElementById('loginBtn');
+    const registerBtn = document.getElementById('registerBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const adminLogoutBtn = document.getElementById('adminLogoutBtn');
+    const backToDashboardBtn = document.getElementById('backToDashboardBtn');
+    const backToDashboardFromHelpBtn = document.getElementById('backToDashboardFromHelpBtn');
+    const backToDashboardFromProfileBtn = document.getElementById('backToDashboardFromProfileBtn');
+    const workCard = document.getElementById('workCard');
+    const helpCard = document.getElementById('helpCard');
+    const profileCard = document.getElementById('profileCard');
+    
+    const loginEmail = document.getElementById('loginEmail');
+    const loginPassword = document.getElementById('loginPassword');
+    
+    const username = document.getElementById('username');
+    const name = document.getElementById('name');
+    const gender = document.getElementById('gender');
+    const education = document.getElementById('education');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const whatsapp = document.getElementById('whatsapp');
+    const referral = document.getElementById('referral');
+    const paymentMethod = document.getElementById('paymentMethod');
+    const paymentNumber = document.getElementById('paymentNumber');
+    const transactionId = document.getElementById('transactionId');
+    const datetime = document.getElementById('datetime');
+    const agreeTerms = document.getElementById('agreeTerms');
+    
+    const loginError = document.getElementById('loginError');
+    const registerError = document.getElementById('registerError');
+    const registerSuccess = document.getElementById('registerSuccess');
+    
+    const dashboardUsername = document.getElementById('dashboardUsername');
+    
+    // Profile level elements
+    const levelDisplay = document.getElementById('levelDisplay');
+    const pointsDisplay = document.getElementById('pointsDisplay');
+    const progressBar = document.getElementById('progressBar');
+    const level1Reward = document.getElementById('level1Reward');
+    const level2Reward = document.getElementById('level2Reward');
+    const level3Reward = document.getElementById('level3Reward');
+    const level4Reward = document.getElementById('level4Reward');
+    const level5Reward = document.getElementById('level5Reward');
+    
+    // Admin elements
+    const adminNavItems = document.querySelectorAll('.admin-nav-item');
+    const adminSections = document.querySelectorAll('.admin-section');
+    const pendingList = document.getElementById('pendingList');
+    const approvedList = document.getElementById('approvedList');
+    const rejectedList = document.getElementById('rejectedList');
+    const allList = document.getElementById('allList');
+    const totalUsersEl = document.getElementById('totalUsers');
+    const pendingUsersEl = document.getElementById('pendingUsers');
+    const approvedUsersEl = document.getElementById('approvedUsers');
+
+    // Admin emails
+    const adminEmails = ['admin@earnwalk.com', 'dev123@gmail.com'];
+
+    // Level thresholds
+    const levelThresholds = [0, 10, 20, 40, 50]; // Points needed for each level
+
+    // Current user data
+    let currentUser = null;
+    let currentUserData = null;
+
+    // Show/Hide Containers
+    function showContainer(container) {
+      loginContainer.style.display = 'none';
+      registerContainer.style.display = 'none';
+      pendingContainer.style.display = 'none';
+      dashboardContainer.style.display = 'none';
+      workMenuContainer.style.display = 'none';
+      helpContainer.style.display = 'none';
+      profileContainer.style.display = 'none';
+      adminDashboard.style.display = 'none';
+      
+      if (container) {
+        container.style.display = 'block';
+      }
+    }
+
+    // Event Listeners
+    showRegister.addEventListener('click', (e) => {
+      e.preventDefault();
+      showContainer(registerContainer);
+    });
+    
+    showLogin.addEventListener('click', (e) => {
+      e.preventDefault();
+      showContainer(loginContainer);
+    });
+    
+    logoutBtn.addEventListener('click', logout);
+    adminLogoutBtn.addEventListener('click', logout);
+    backToDashboardBtn.addEventListener('click', () => showContainer(dashboardContainer));
+    backToDashboardFromHelpBtn.addEventListener('click', () => showContainer(dashboardContainer));
+    backToDashboardFromProfileBtn.addEventListener('click', () => showContainer(dashboardContainer));
+    
+    workCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      showContainer(workMenuContainer);
+    });
+
+    helpCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      showContainer(helpContainer);
+    });
+
+    profileCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      showContainer(profileContainer);
+      updateProfileLevelDisplay();
+    });
+
+    // Admin navigation
+    adminNavItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Remove active class from all items
+        adminNavItems.forEach(navItem => navItem.classList.remove('active'));
+        // Add active class to clicked item
+        item.classList.add('active');
+        
+        // Hide all sections
+        adminSections.forEach(section => section.classList.remove('active'));
+        // Show the selected section
+        const sectionId = item.dataset.section + 'Section';
+        document.getElementById(sectionId).classList.add('active');
+        
+        // Load data for the section if needed
+        if (item.dataset.section === 'pending') {
+          loadPendingUsers();
+        } else if (item.dataset.section === 'approved') {
+          loadApprovedUsers();
+        } else if (item.dataset.section === 'rejected') {
+          loadRejectedUsers();
+        } else if (item.dataset.section === 'all') {
+          loadAllUsers();
+        }
+      });
+    });
+
+    // Update Profile Level Display
+    function updateProfileLevelDisplay() {
+      if (!currentUserData) return;
+      
+      const points = currentUserData.points || 0;
+      let currentLevel = 1;
+      let nextLevelThreshold = levelThresholds[1];
+      
+      // Determine current level
+      for (let i = levelThresholds.length - 1; i >= 0; i--) {
+        if (points >= levelThresholds[i]) {
+          currentLevel = i + 1;
+          nextLevelThreshold = i < levelThresholds.length - 1 ? levelThresholds[i + 1] : levelThresholds[i];
+          break;
+        }
+      }
+      
+      // Update level display
+      levelDisplay.textContent = `Level ${currentLevel}`;
+      pointsDisplay.textContent = `${points} Points`;
+      
+      // Update progress bar
+      const progressPercentage = currentLevel < levelThresholds.length 
+        ? ((points - levelThresholds[currentLevel - 1]) / (nextLevelThreshold - levelThresholds[currentLevel - 1])) * 100
+        : 100;
+      progressBar.style.width = `${progressPercentage}%`;
+      
+      // Update reward achievements
+      level1Reward.textContent = points >= levelThresholds[0] ? '?' : '?';
+      level2Reward.textContent = points >= levelThresholds[1] ? '?' : '?';
+      level3Reward.textContent = points >= levelThresholds[2] ? '?' : '?';
+      level4Reward.textContent = points >= levelThresholds[3] ? '?' : '?';
+      level5Reward.textContent = points >= levelThresholds[4] ? '?' : '?';
+    }
+
+    // Add points to user
+    function addPoints(pointsToAdd) {
+      if (!currentUser || !currentUserData) return;
+      
+      const currentPoints = currentUserData.points || 0;
+      const newPoints = currentPoints + pointsToAdd;
+      
+      database.ref('users/' + currentUser.uid).update({ points: newPoints })
+        .then(() => {
+          currentUserData.points = newPoints;
+          updateProfileLevelDisplay();
+        })
+        .catch((error) => {
+          console.error('Error updating points:', error);
+        });
+    }
+
+    // Check Auth State
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        // User is signed in
+        currentUser = user;
+        checkUserStatus(user.uid, user.email);
+      } else {
+        // No user is signed in
+        currentUser = null;
+        currentUserData = null;
+        showContainer(loginContainer);
+      }
+    });
+
+    // Login Function
+    loginBtn.addEventListener('click', () => {
+      const email = loginEmail.value;
+      const pass = loginPassword.value;
+      
+      if (!email || !pass) {
+        loginError.textContent = 'Please fill in all fields';
+        return;
+      }
+      
+      auth.signInWithEmailAndPassword(email, pass)
+        .then((userCredential) => {
+          // Login successful
+          loginError.textContent = '';
+        })
+        .catch((error) => {
+          loginError.textContent = error.message;
+        });
+    });
+
+    // Register Function
+    registerBtn.addEventListener('click', () => {
+      // Validate all fields
+      if (!username.value || !name.value || !gender.value || !education.value || 
+          !email.value || !password.value || !whatsapp.value || !paymentMethod.value || 
+          !paymentNumber.value || !transactionId.value || !datetime.value || !agreeTerms.checked) {
+        registerError.textContent = 'Please fill in all fields and agree to terms';
+        return;
+      }
+      
+      if (password.value.length < 6) {
+        registerError.textContent = 'Password must be at least 6 characters';
+        return;
+      }
+      
+      if (paymentNumber.value.length !== 11) {
+        registerError.textContent = 'Payment number must be 11 digits';
+        return;
+      }
+      
+      // Create user with email and password
+      auth.createUserWithEmailAndPassword(email.value, password.value)
+        .then((userCredential) => {
+          // User created, now save additional info to database
+          const user = userCredential.user;
+          const userData = {
+            username: username.value,
+            name: name.value,
+            gender: gender.value,
+            education: education.value,
+            email: email.value,
+            whatsapp: whatsapp.value,
+            referral: referral.value || '',
+            paymentMethod: paymentMethod.value,
+            paymentNumber: paymentNumber.value,
+            transactionId: transactionId.value,
+            datetime: datetime.value,
+            status: 'pending', // pending, approved, rejected
+            points: 0, // Initialize points to 0
+            createdAt: firebase.database.ServerValue.TIMESTAMP,
+            uid: user.uid
+          };
+          
+          // Save user data to database
+          database.ref('users/' + user.uid).set(userData)
+            .then(() => {
+              registerError.textContent = '';
+              registerSuccess.textContent = 'Registration successful! Please wait for admin approval.';
+              
+              // Clear form
+              username.value = '';
+              name.value = '';
+              gender.value = '';
+              education.value = '';
+              email.value = '';
+              password.value = '';
+              whatsapp.value = '';
+              referral.value = '';
+              paymentMethod.value = '';
+              paymentNumber.value = '';
+              transactionId.value = '';
+              datetime.value = '';
+              agreeTerms.checked = false;
+              
+              // Show pending approval screen
+              setTimeout(() => {
+                showContainer(pendingContainer);
+                auth.signOut(); // Logout user until approved
+              }, 2000);
+            })
+            .catch((error) => {
+              registerError.textContent = 'Failed to save user data: ' + error.message;
+            });
+        })
+        .catch((error) => {
+          registerError.textContent = error.message;
+        });
+    });
+
+    // Check User Status (pending, approved, admin)
+    function checkUserStatus(uid, email) {
+      database.ref('users/' + uid).once('value')
+        .then((snapshot) => {
+          const userData = snapshot.val();
+          currentUserData = userData;
+          
+          // Check if admin
+          if (adminEmails.includes(email)) {
+            showAdminPanel();
+            loadAdminStats();
+            loadPendingUsers();
+            return;
+          }
+          
+          // Check if user exists and is approved
+          if (userData && userData.status === 'approved') {
+            // Show dashboard
+            showDashboard(userData);
+          } else if (userData && userData.status === 'pending') {
+            // Show pending approval screen
+            showContainer(pendingContainer);
+          } else {
+            // User data not found or status unknown
+            auth.signOut();
+            showContainer(loginContainer);
+          }
+        })
+        .catch((error) => {
+          console.error('Error checking user status:', error);
+          auth.signOut();
+          showContainer(loginContainer);
+        });
+    }
+
+    // Show Dashboard
+    function showDashboard(userData) {
+      dashboardUsername.textContent = `Welcome, ${userData.username}`;
+      showContainer(dashboardContainer);
+      
+      // For testing - add some points automatically
+      // setTimeout(() => addPoints(15), 2000); // Add 15 points after 2 seconds (for testing)
+    }
+
+    // Show Admin Panel
+    function showAdminPanel() {
+      showContainer(adminDashboard);
+      loadAdminStats();
+      loadPendingUsers();
+    }
+
+    // Load Admin Stats
+    function loadAdminStats() {
+      database.ref('users').once('value')
+        .then((snapshot) => {
+          let total = 0;
+          let pending = 0;
+          let approved = 0;
+          let rejected = 0;
+          
+          snapshot.forEach(childSnapshot => {
+            const user = childSnapshot.val();
+            total++;
+            if (user.status === 'pending') pending++;
+            if (user.status === 'approved') approved++;
+            if (user.status === 'rejected') rejected++;
+          });
+          
+          totalUsersEl.textContent = total;
+          pendingUsersEl.textContent = pending;
+          approvedUsersEl.textContent = approved;
+        })
+        .catch((error) => {
+          console.error('Error loading admin stats:', error);
+        });
+    }
+
+    // Load Pending Users
+    function loadPendingUsers() {
+      database.ref('users').orderByChild('status').equalTo('pending').once('value')
+        .then((snapshot) => {
+          pendingList.innerHTML = '';
+          
+          if (!snapshot.exists()) {
+            pendingList.innerHTML = '<p>No pending users</p>';
+            return;
+          }
+          
+          snapshot.forEach((childSnapshot) => {
+            const user = childSnapshot.val();
+            addUserCard(user, pendingList, true);
+          });
+        })
+        .catch((error) => {
+          console.error('Error loading pending users:', error);
+        });
+    }
+
+    // Load Approved Users
+    function loadApprovedUsers() {
+      database.ref('users').orderByChild('status').equalTo('approved').once('value')
+        .then((snapshot) => {
+          approvedList.innerHTML = '';
+          
+          if (!snapshot.exists()) {
+            approvedList.innerHTML = '<p>No approved users</p>';
+            return;
+          }
+          
+          snapshot.forEach((childSnapshot) => {
+            const user = childSnapshot.val();
+            addUserCard(user, approvedList, false);
+          });
+        })
+        .catch((error) => {
+          console.error('Error loading approved users:', error);
+        });
+    }
+
+    // Load Rejected Users
+    function loadRejectedUsers() {
+      database.ref('users').orderByChild('status').equalTo('rejected').once('value')
+        .then((snapshot) => {
+          rejectedList.innerHTML = '';
+          
+          if (!snapshot.exists()) {
+            rejectedList.innerHTML = '<p>No rejected users</p>';
+            return;
+          }
+          
+          snapshot.forEach((childSnapshot) => {
+            const user = childSnapshot.val();
+            addUserCard(user, rejectedList, false);
+          });
+        })
+        .catch((error) => {
+          console.error('Error loading rejected users:', error);
+        });
+    }
+
+    // Load All Users
+    function loadAllUsers() {
+      database.ref('users').once('value')
+        .then((snapshot) => {
+          allList.innerHTML = '';
+          
+          if (!snapshot.exists()) {
+            allList.innerHTML = '<p>No users found</p>';
+            return;
+          }
+          
+          snapshot.forEach((childSnapshot) => {
+            const user = childSnapshot.val();
+            addUserCard(user, allList, user.status === 'pending');
+          });
+        })
+        .catch((error) => {
+          console.error('Error loading all users:', error);
+        });
+    }
+
+    // Add User Card to List
+    function addUserCard(user, listElement, showActions = true) {
+      const userCard = document.createElement('div');
+      userCard.className = 'user-card';
+      
+      const statusClass = user.status === 'pending' ? 'pending' : 
+                         user.status === 'approved' ? 'approved' : 'rejected';
+      
+      userCard.innerHTML = `
+        <div class="user-info">
+          <div class="user-name">${user.name} (${user.username})</div>
+          <div class="user-email">${user.email}</div>
+          <div class="user-whatsapp">WhatsApp: ${user.whatsapp}</div>
+          <div class="user-payment">Payment: ${user.paymentMethod} (${user.paymentNumber})</div>
+          <div class="user-status ${statusClass}">${user.status}</div>
+          <div class="user-points">Points: ${user.points || 0}</div>
+        </div>
+      `;
+      
+      if (showActions) {
+        const actionButtons = document.createElement('div');
+        actionButtons.className = 'action-buttons';
+        actionButtons.innerHTML = `
+          <button class="action-btn approve-btn" data-uid="${user.uid}">Approve</button>
+          <button class="action-btn reject-btn" data-uid="${user.uid}">Reject</button>
+          <button class="action-btn view-btn" data-uid="${user.uid}">View</button>
+        `;
+        userCard.appendChild(actionButtons);
+        
+        // Add event listeners to buttons
+        userCard.querySelector('.approve-btn').addEventListener('click', () => approveUser(user.uid));
+        userCard.querySelector('.reject-btn').addEventListener('click', () => rejectUser(user.uid));
+        userCard.querySelector('.view-btn').addEventListener('click', () => viewUser(user));
+      }
+      
+      listElement.appendChild(userCard);
+    }
+
+    // Approve User
+    function approveUser(uid) {
+      database.ref('users/' + uid).update({ status: 'approved' })
+        .then(() => {
+          // Refresh all lists and stats
+          loadPendingUsers();
+          loadApprovedUsers();
+          loadAllUsers();
+          loadAdminStats();
+        })
+        .catch((error) => {
+          console.error('Error approving user:', error);
+        });
+    }
+
+    // Reject User
+    function rejectUser(uid) {
+      database.ref('users/' + uid).update({ status: 'rejected' })
+        .then(() => {
+          // Refresh all lists and stats
+          loadPendingUsers();
+          loadRejectedUsers();
+          loadAllUsers();
+          loadAdminStats();
+        })
+        .catch((error) => {
+          console.error('Error rejecting user:', error);
+        });
+    }
+
+    // View User Details
+    function viewUser(user) {
+      alert(`User Details:\n\nName: ${user.name}\nUsername: ${user.username}\nEmail: ${user.email}\nWhatsApp: ${user.whatsapp}\nStatus: ${user.status}\nPoints: ${user.points || 0}\nPayment Method: ${user.paymentMethod}\nPayment Number: ${user.paymentNumber}\nTransaction ID: ${user.transactionId}\nRegistration Date: ${new Date(user.datetime).toLocaleString()}`);
+    }
+
+    // Logout Function
+    function logout() {
+      auth.signOut()
+        .then(() => {
+          showContainer(loginContainer);
+        })
+        .catch((error) => {
+          console.error('Error logging out:', error);
+        });
+    }
+
+    // Initialize - show login by default
+    showContainer(loginContainer);
+    
+    // Set current datetime for registration form
+    const now = new Date();
+    datetime.value = now.toISOString().slice(0, 16);
+  </script>
+</body>
+</html>
