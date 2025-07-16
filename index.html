@@ -903,6 +903,352 @@
       line-height: 1.5;
     }
 
+    /* Offer Page Styles */
+    .offer-container {
+      display: none;
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .offer-header {
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .offer-content {
+      padding: 20px;
+      background: linear-gradient(to bottom right, #ff2fbf, #8e2de2);
+      color: white;
+      text-align: center;
+    }
+
+    .offer-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 19px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .offer-box h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .offer-box p {
+      margin-bottom: 15px;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    /* Leaderboard Styles */
+    .leaderboard-container {
+      display: none;
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .leaderboard-header {
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .leaderboard-content {
+      padding: 20px;
+    }
+
+    .leaderboard-list {
+      margin-top: 15px;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .leaderboard-item {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      background: #f8f8f8;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .leaderboard-rank {
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+
+    .leaderboard-user {
+      flex: 1;
+    }
+
+    .leaderboard-name {
+      font-weight: bold;
+    }
+
+    .leaderboard-points {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Balance Page Styles */
+    .balance-container {
+      display: none;
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .balance-header {
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .balance-content {
+      padding: 20px;
+    }
+
+    .balance-display {
+      background: #f8f8f8;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .balance-amount {
+      font-size: 32px;
+      font-weight: bold;
+      color: #8e2de2;
+      margin: 10px 0;
+    }
+
+    .points-display-balance {
+      font-size: 24px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .convert-btn {
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+
+    .convert-btn:hover {
+      opacity: 0.9;
+    }
+
+    .convert-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* Withdraw Page Styles */
+    .withdraw-container {
+      display: none;
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .withdraw-header {
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .withdraw-content {
+      padding: 20px;
+    }
+
+    .balance-display-withdraw {
+      background: #f8f8f8;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .withdraw-message {
+      background: #f8f8f8;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .withdraw-form {
+      margin-top: 20px;
+    }
+
+    .withdraw-btn {
+      background: linear-gradient(to right, #ff2fbf, #8e2de2);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+
+    .withdraw-btn:hover {
+      opacity: 0.9;
+    }
+
+    .withdraw-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* User Details Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #8e2de2;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .modal-action-btn {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .delete-btn {
+      background: #ff4757;
+      color: white;
+    }
+
+    .add-points-btn {
+      background: #2ed573;
+      color: white;
+    }
+
+    .remove-points-btn {
+      background: #ffa502;
+      color: white;
+    }
+
+    .add-bdt-btn {
+      background: #3498db;
+      color: white;
+    }
+
+    .points-input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
     /* Responsive Styles */
     @media (max-width: 500px) {
       .grid {
@@ -938,6 +1284,14 @@
 
       .referral-stats {
         grid-template-columns: 1fr;
+      }
+
+      .modal-actions {
+        flex-direction: column;
+      }
+
+      .modal-action-btn {
+        width: 100%;
       }
     }
 
@@ -1107,17 +1461,17 @@
         <p>Refer</p>
       </a>
 
-      <a href="withdraw.html" class="card">
+      <a href="#" class="card" id="withdrawCard">
         <img src="https://img.icons8.com/ios/50/money.png" alt="Withdraw">
         <p>Withdraw</p>
       </a>
 
-      <a href="screenshot.html" class="card">
+      <a href="#" class="card" id="screenshotCard">
         <img src="https://img.icons8.com/ios/50/image.png" alt="Screenshot">
         <p>Screenshot</p>
       </a>
 
-      <a href="offer.html" class="card">
+      <a href="#" class="card" id="offerCard">
         <img src="https://img.icons8.com/ios/50/email-open.png" alt="Offer">
         <p>Offer</p>
       </a>
@@ -1127,13 +1481,13 @@
         <p>History</p>
       </a>
 
-      <a href="balance.html" class="card">
+      <a href="#" class="card" id="balanceCard">
         <img src="https://img.icons8.com/ios/50/money-bag.png" alt="Balance">
         <p>Balance</p>
       </a>
 
-      <a href="leaderboard.html" class="card">
-        <img src="https://img.icons8.com/ios/50/paypal.png" alt="Leaderboard">
+      <a href="#" class="card" id="leaderboardCard">
+        <img src="https://img.icons8.com/ios/50/trophy.png" alt="Leaderboard">
         <p>Leaderboard</p>
       </a>
 
@@ -1217,27 +1571,27 @@
         <h3>Level Rewards</h3>
         <div class="reward-item">
           <div class="reward-icon">??</div>
-          <div class="reward-text">Level 1: Start your journey (0 points)</div>
+          <div class="reward-text">Level 1: Reach 200 points (Gift: T-Shirt)</div>
           <div class="reward-achieved" id="level1Reward">?</div>
         </div>
         <div class="reward-item">
           <div class="reward-icon">??</div>
-          <div class="reward-text">Level 2: Reach 10 points</div>
+          <div class="reward-text">Level 2: Reach 500 points (Gift: T-Shirt + Crest)</div>
           <div class="reward-achieved" id="level2Reward">?</div>
         </div>
         <div class="reward-item">
           <div class="reward-icon">??</div>
-          <div class="reward-text">Level 3: Reach 20 points</div>
+          <div class="reward-text">Level 3: Reach 1000 points (Gift: Attractive Gift + T-Shirt + Crest)</div>
           <div class="reward-achieved" id="level3Reward">?</div>
         </div>
         <div class="reward-item">
           <div class="reward-icon">??</div>
-          <div class="reward-text">Level 4: Reach 40 points</div>
+          <div class="reward-text">Level 4: Reach 2000 points (Gift: Attractive Gift + Crest)</div>
           <div class="reward-achieved" id="level4Reward">?</div>
         </div>
         <div class="reward-item">
           <div class="reward-icon">??</div>
-          <div class="reward-text">Level 5: Reach 50 points</div>
+          <div class="reward-text">Level 5: Reach 4000 points (Gift: Special Gift + Crest)</div>
           <div class="reward-achieved" id="level5Reward">?</div>
         </div>
       </div>
@@ -1285,6 +1639,62 @@
     </div>
   </div>
 
+  <!-- Balance Container -->
+  <div class="balance-container" id="balanceContainer">
+    <div class="balance-header">
+      My Balance
+    </div>
+    <div class="balance-content">
+      <div class="balance-display">
+        <p>Available Balance</p>
+        <div class="balance-amount" id="balanceAmount">0 BDT</div>
+        <div class="points-display-balance" id="pointsDisplayBalance">0 Points</div>
+      </div>
+      
+      <button class="convert-btn" id="convertBtn" disabled>Convert Points to BDT (500 Points = 150 BDT)</button>
+      
+      <button class="back-btn" id="backToDashboardFromBalanceBtn">Back to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- Withdraw Container -->
+  <div class="withdraw-container" id="withdrawContainer">
+    <div class="withdraw-header">
+      Withdraw Money
+    </div>
+    <div class="withdraw-content">
+      <div class="balance-display-withdraw">
+        <p>Available Balance</p>
+        <div class="balance-amount" id="withdrawBalanceAmount">0 BDT</div>
+      </div>
+      
+      <div class="withdraw-message" id="withdrawMessage">
+        Your withdraw request is pending. Admin will process it within 24 hours.
+      </div>
+      
+      <div class="withdraw-form" id="withdrawForm">
+        <div class="input-group">
+          <label for="withdrawMethod">Withdraw Method</label>
+          <select id="withdrawMethod">
+            <option value="">Select Method</option>
+            <option value="Bkash">Bkash</option>
+            <option value="Nagad">Nagad</option>
+            <option value="Rocket">Rocket</option>
+          </select>
+        </div>
+        
+        <div class="input-group">
+          <label for="withdrawNumber">Account Number</label>
+          <input type="text" id="withdrawNumber" placeholder="Enter your account number">
+        </div>
+        
+        <button class="withdraw-btn" id="withdrawBtn">Withdraw 150 BDT</button>
+      </div>
+      
+      <button class="back-btn" id="backToDashboardFromWithdrawBtn">Back to Dashboard</button>
+    </div>
+  </div>
+
   <!-- History Container -->
   <div class="history-container-full" id="historyContainer">
     <div class="history-header">
@@ -1306,15 +1716,54 @@
     <div class="notice-content">
       <div class="notice-box">
         <h2>Level 1</h2>
-        <p>নিচের দেওয়া সকল নিয়ম গুলো মেনে কাজ করবেন নয়তো আপনাকে ট্রেনিং গ্রুপ থেকে রিমুভ করা হবে এবং আপনার আইডি সাসপেন্ড করা হবে....!!❌</p>
-        <p>১। অ্যাডমিনদের  স্যার/ ম্যাম বলে ডাকতে হবে।অ্যাডমিদের সাথে খারাপ ব্যবহার করলে গ্রুপ থেকে রিমুভ করা হবে।</p>
-        <p>২। এই গ্রুপের কোনো মেম্বার কে পার্সোনাল ভাবে মেসেজ দিবেন না,,যদি মেসেজ দেন তাহলে গ্রুপ থেকে রিমুভ করা হবে।</p> 
-        <p>৩।ট্রেইনার এডমিন কে যে মেসেজ গুলো কখনোই করবেন না : Hii, Hello,Hlw, Admin achen, apni ki achen vaiya,,, এমন মেসেজ দেওয়া যাবে না।</p>
-        <p>৪।  আপনাকে যে ভিডিও গুলো দেওয়া হবে মনোযোগ দিয়ে দেখবেন,, কোনো রকম সমস্যা হলে স্কিন শর্ট দিয়ে অ্যাডমিনদের কে জানাবেন,,এ ছাড়া গ্রুপ এ অযথা কোনো কথা বলবেন না।</p>
-        <p>৫। আমাদের সাইটের কাজ ব্যতিত অন্য কোনো সাইটের কাজের কথা বা কোনো মেম্বার কে কাজের অফার দিলে আপনার আইডি সাসপেন্ড করা হবে।</p>
-        <p>উপরের দেওয়া সকল নিয়ম গুলো সবাই মেনে চলবেন। ধন্যবাদ*</p>
+        <p>????? ????? ??? ???? ???? ???? ??? ????? ???? ?????? ??????? ????? ???? ????? ??? ??? ??? ????? ???? ???????? ??? ???....!!?</p>
+        <p>?? ???????????  ?????/ ????? ??? ????? ?????????????? ???? ????? ??????? ???? ????? ???? ????? ??? ????</p>
+        <p>?? ?? ??????? ???? ??????? ?? ????????? ???? ????? ????? ??,,??? ????? ??? ????? ????? ???? ????? ??? ????</p> 
+        <p>?????????? ????? ?? ?? ????? ???? ????? ????? ?? : Hii, Hello,Hlw, Admin achen, apni ki achen vaiya,,, ??? ????? ????? ???? ???</p>
+        <p>??  ?????? ?? ????? ???? ????? ??? ?????? ???? ??????,, ???? ??? ?????? ??? ????? ???? ???? ??????????? ?? ???????,,? ???? ????? ? ???? ???? ??? ????? ???</p>
+        <p>?? ?????? ?????? ??? ?????? ???? ???? ?????? ????? ??? ?? ???? ??????? ?? ????? ???? ???? ????? ???? ???????? ??? ????</p>
+        <p>????? ????? ??? ???? ???? ???? ???? ?????? ???????*</p>
       </div>
       <button class="back-btn" id="backToDashboardFromNoticeBtn">Back to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- Offer Container -->
+  <div class="offer-container" id="offerContainer">
+    <div class="offer-header">
+      Special Offers
+    </div>
+    <div class="offer-content">
+      <div class="offer-box">
+        <h2>Level 1</h2>
+        <p>???? ??? ??? ?? ????? ???? ????? ????? ?????? ?????? ?????? ???? ???? ???? ?????? ???? ??? ????</p>
+        
+        <h2>Level 2</h2>
+        <p>???? ??? ??? ?? ????? ???? ????? ????? ?????? ?????? ???? ???? ???? ???? ??? ??? ???? ???? ??????? ?????</p>
+        
+        <h2>Level 3</h2>
+        <p>???? ??? ?????? ????? ????? ????? ???? ????? ????? ????? ???? ???????? ???? ???? ???? ?????? ???? ???? ??????? ?????</p>
+        
+        <h2>Level 4</h2>
+        <p>???? ??? ?????? ????? ????? ????? ???? ????? ????? ?????? ???? ???? ???? ???????? ???? ?? ???? ???? ??????? ?????</p>
+        
+        <h2>Level 5</h2>
+        <p>???? ??? ?????? ????? ???? ?? ????? ???? ????? ????? ?????? ???? ???? ???? ???????? ???? ???? ????? ???? ???? ??????? ??????</p>
+      </div>
+      <button class="back-btn" id="backToDashboardFromOfferBtn">Back to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- Leaderboard Container -->
+  <div class="leaderboard-container" id="leaderboardContainer">
+    <div class="leaderboard-header">
+      Leaderboard
+    </div>
+    <div class="leaderboard-content">
+      <div class="leaderboard-list" id="leaderboardList">
+        <!-- Leaderboard items will be populated here -->
+      </div>
+      <button class="back-btn" id="backToDashboardFromLeaderboardBtn">Back to Dashboard</button>
     </div>
   </div>
 
@@ -1331,6 +1780,7 @@
       <div class="admin-nav-item" data-section="approved">Approved Users</div>
       <div class="admin-nav-item" data-section="rejected">Rejected Users</div>
       <div class="admin-nav-item" data-section="all">All Users</div>
+      <div class="admin-nav-item" data-section="withdrawals">Withdrawals</div>
     </div>
     
     <div class="admin-content">
@@ -1349,6 +1799,10 @@
           <div class="stat-card">
             <div class="stat-value" id="approvedUsers">0</div>
             <div class="stat-label">Approved Users</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="pendingWithdrawals">0</div>
+            <div class="stat-label">Pending Withdrawals</div>
           </div>
         </div>
       </div>
@@ -1383,6 +1837,35 @@
         <div id="allList" class="user-list">
           <!-- All users will be populated here -->
         </div>
+      </div>
+      
+      <!-- Withdrawals Section -->
+      <div class="admin-section" id="withdrawalsSection">
+        <h2>Withdrawal Requests</h2>
+        <div id="withdrawalsList" class="user-list">
+          <!-- Withdrawal requests will be populated here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Details Modal -->
+  <div class="modal" id="userDetailsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="modalUserTitle">User Details</div>
+        <button class="close-modal" id="closeModal">&times;</button>
+      </div>
+      <div id="modalUserContent">
+        <!-- User details will be populated here -->
+      </div>
+      <div class="modal-actions">
+        <button class="modal-action-btn delete-btn" id="deleteAccountBtn">Delete Account</button>
+        <button class="modal-action-btn add-points-btn" id="addPointsBtn">Add Points</button>
+        <button class="modal-action-btn remove-points-btn" id="removePointsBtn">Remove Points</button>
+        <button class="modal-action-btn add-bdt-btn" id="addBdtBtn">Add BDT</button>
+        <input type="number" id="pointsInput" class="points-input" placeholder="Enter points" style="display: none;">
+        <input type="number" id="bdtInput" class="points-input" placeholder="Enter BDT amount" style="display: none;">
       </div>
     </div>
   </div>
@@ -1419,9 +1902,14 @@
     const helpContainer = document.getElementById('helpContainer');
     const profileContainer = document.getElementById('profileContainer');
     const referralContainer = document.getElementById('referralContainer');
+    const balanceContainer = document.getElementById('balanceContainer');
+    const withdrawContainer = document.getElementById('withdrawContainer');
     const historyContainer = document.getElementById('historyContainer');
     const noticeContainer = document.getElementById('noticeContainer');
+    const offerContainer = document.getElementById('offerContainer');
+    const leaderboardContainer = document.getElementById('leaderboardContainer');
     const adminDashboard = document.getElementById('adminDashboard');
+    const userDetailsModal = document.getElementById('userDetailsModal');
     
     const showRegister = document.getElementById('showRegister');
     const showLogin = document.getElementById('showLogin');
@@ -1434,15 +1922,23 @@
     const backToDashboardFromHelpBtn = document.getElementById('backToDashboardFromHelpBtn');
     const backToDashboardFromProfileBtn = document.getElementById('backToDashboardFromProfileBtn');
     const backToDashboardFromReferralBtn = document.getElementById('backToDashboardFromReferralBtn');
+    const backToDashboardFromBalanceBtn = document.getElementById('backToDashboardFromBalanceBtn');
+    const backToDashboardFromWithdrawBtn = document.getElementById('backToDashboardFromWithdrawBtn');
     const backToDashboardFromHistoryBtn = document.getElementById('backToDashboardFromHistoryBtn');
     const backToDashboardFromNoticeBtn = document.getElementById('backToDashboardFromNoticeBtn');
+    const backToDashboardFromOfferBtn = document.getElementById('backToDashboardFromOfferBtn');
+    const backToDashboardFromLeaderboardBtn = document.getElementById('backToDashboardFromLeaderboardBtn');
     const workCard = document.getElementById('workCard');
     const helpCard = document.getElementById('helpCard');
     const profileCard = document.getElementById('profileCard');
     const referCard = document.getElementById('referCard');
+    const balanceCard = document.getElementById('balanceCard');
+    const withdrawCard = document.getElementById('withdrawCard');
     const historyCard = document.getElementById('historyCard');
     const noticeCard = document.getElementById('noticeCard');
     const noticeCard2 = document.getElementById('noticeCard2');
+    const offerCard = document.getElementById('offerCard');
+    const leaderboardCard = document.getElementById('leaderboardCard');
     
     const loginEmail = document.getElementById('loginEmail');
     const loginPassword = document.getElementById('loginPassword');
@@ -1475,6 +1971,19 @@
     const referralPoints = document.getElementById('referralPoints');
     const referralHistoryList = document.getElementById('referralHistoryList');
     
+    // Balance elements
+    const balanceAmount = document.getElementById('balanceAmount');
+    const pointsDisplayBalance = document.getElementById('pointsDisplayBalance');
+    const convertBtn = document.getElementById('convertBtn');
+    
+    // Withdraw elements
+    const withdrawBalanceAmount = document.getElementById('withdrawBalanceAmount');
+    const withdrawMessage = document.getElementById('withdrawMessage');
+    const withdrawForm = document.getElementById('withdrawForm');
+    const withdrawMethod = document.getElementById('withdrawMethod');
+    const withdrawNumber = document.getElementById('withdrawNumber');
+    const withdrawBtn = document.getElementById('withdrawBtn');
+    
     // History elements
     const historyList = document.getElementById('historyList');
     
@@ -1488,6 +1997,9 @@
     const level4Reward = document.getElementById('level4Reward');
     const level5Reward = document.getElementById('level5Reward');
     
+    // Leaderboard elements
+    const leaderboardList = document.getElementById('leaderboardList');
+    
     // Admin elements
     const adminNavItems = document.querySelectorAll('.admin-nav-item');
     const adminSections = document.querySelectorAll('.admin-section');
@@ -1495,24 +2007,43 @@
     const approvedList = document.getElementById('approvedList');
     const rejectedList = document.getElementById('rejectedList');
     const allList = document.getElementById('allList');
+    const withdrawalsList = document.getElementById('withdrawalsList');
     const totalUsersEl = document.getElementById('totalUsers');
     const pendingUsersEl = document.getElementById('pendingUsers');
     const approvedUsersEl = document.getElementById('approvedUsers');
+    const pendingWithdrawalsEl = document.getElementById('pendingWithdrawals');
+    
+    // Modal elements
+    const modalUserTitle = document.getElementById('modalUserTitle');
+    const modalUserContent = document.getElementById('modalUserContent');
+    const closeModal = document.getElementById('closeModal');
+    const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+    const addPointsBtn = document.getElementById('addPointsBtn');
+    const removePointsBtn = document.getElementById('removePointsBtn');
+    const addBdtBtn = document.getElementById('addBdtBtn');
+    const pointsInput = document.getElementById('pointsInput');
+    const bdtInput = document.getElementById('bdtInput');
 
     // Admin emails
     const adminEmails = ['admin@earnwalk.com', 'dev123@gmail.com'];
 
     // Level thresholds
-    const levelThresholds = [0, 10, 20, 40, 50]; // Points needed for each level
+    const levelThresholds = [200, 500, 1000, 2000, 4000]; // Updated points needed for each level
 
     // Referral points
     const REFERRAL_SIGNUP_POINTS = 2;
     const REFERRAL_BONUS_POINTS = 5;
     const REFERRAL_BONUS_THRESHOLD = 10;
 
+    // Points to BDT conversion
+    const POINTS_TO_BDT_RATE = 150 / 500; // 500 points = 150 BDT
+    const MIN_WITHDRAW_AMOUNT = 150;
+    const MIN_POINTS_FOR_CONVERSION = 500;
+
     // Current user data
     let currentUser = null;
     let currentUserData = null;
+    let selectedUserForModal = null;
 
     // Show/Hide Containers
     function showContainer(container) {
@@ -1524,13 +2055,29 @@
       helpContainer.style.display = 'none';
       profileContainer.style.display = 'none';
       referralContainer.style.display = 'none';
+      balanceContainer.style.display = 'none';
+      withdrawContainer.style.display = 'none';
       historyContainer.style.display = 'none';
       noticeContainer.style.display = 'none';
+      offerContainer.style.display = 'none';
+      leaderboardContainer.style.display = 'none';
       adminDashboard.style.display = 'none';
       
       if (container) {
         container.style.display = 'block';
       }
+    }
+
+    // Show modal
+    function showModal() {
+      userDetailsModal.style.display = 'flex';
+    }
+
+    // Hide modal
+    function hideModal() {
+      userDetailsModal.style.display = 'none';
+      pointsInput.style.display = 'none';
+      bdtInput.style.display = 'none';
     }
 
     // Event Listeners
@@ -1550,8 +2097,12 @@
     backToDashboardFromHelpBtn.addEventListener('click', () => showContainer(dashboardContainer));
     backToDashboardFromProfileBtn.addEventListener('click', () => showContainer(dashboardContainer));
     backToDashboardFromReferralBtn.addEventListener('click', () => showContainer(dashboardContainer));
+    backToDashboardFromBalanceBtn.addEventListener('click', () => showContainer(dashboardContainer));
+    backToDashboardFromWithdrawBtn.addEventListener('click', () => showContainer(dashboardContainer));
     backToDashboardFromHistoryBtn.addEventListener('click', () => showContainer(dashboardContainer));
     backToDashboardFromNoticeBtn.addEventListener('click', () => showContainer(dashboardContainer));
+    backToDashboardFromOfferBtn.addEventListener('click', () => showContainer(dashboardContainer));
+    backToDashboardFromLeaderboardBtn.addEventListener('click', () => showContainer(dashboardContainer));
     
     workCard.addEventListener('click', (e) => {
       e.preventDefault();
@@ -1575,6 +2126,18 @@
       loadReferralInfo();
     });
 
+    balanceCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      showContainer(balanceContainer);
+      loadBalanceInfo();
+    });
+
+    withdrawCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      showContainer(withdrawContainer);
+      loadWithdrawInfo();
+    });
+
     historyCard.addEventListener('click', (e) => {
       e.preventDefault();
       showContainer(historyContainer);
@@ -1591,6 +2154,17 @@
       showContainer(noticeContainer);
     });
 
+    offerCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      showContainer(offerContainer);
+    });
+
+    leaderboardCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      showContainer(leaderboardContainer);
+      loadLeaderboard();
+    });
+
     // Copy referral code
     copyReferralBtn.addEventListener('click', () => {
       navigator.clipboard.writeText(referralCodeDisplay.textContent)
@@ -1605,6 +2179,12 @@
           console.error('Failed to copy text: ', err);
         });
     });
+
+    // Convert points to BDT
+    convertBtn.addEventListener('click', convertPointsToBdt);
+
+    // Withdraw money
+    withdrawBtn.addEventListener('click', requestWithdraw);
 
     // Admin navigation
     adminNavItems.forEach(item => {
@@ -1629,8 +2209,64 @@
           loadRejectedUsers();
         } else if (item.dataset.section === 'all') {
           loadAllUsers();
+        } else if (item.dataset.section === 'withdrawals') {
+          loadWithdrawalRequests();
         }
       });
+    });
+
+    // Modal events
+    closeModal.addEventListener('click', hideModal);
+    
+    addPointsBtn.addEventListener('click', () => {
+      if (pointsInput.style.display === 'none') {
+        pointsInput.style.display = 'block';
+        bdtInput.style.display = 'none';
+        pointsInput.focus();
+      } else {
+        const points = parseInt(pointsInput.value);
+        if (points > 0) {
+          addUserPoints(selectedUserForModal.uid, points);
+          pointsInput.value = '';
+          pointsInput.style.display = 'none';
+        }
+      }
+    });
+    
+    removePointsBtn.addEventListener('click', () => {
+      if (pointsInput.style.display === 'none') {
+        pointsInput.style.display = 'block';
+        bdtInput.style.display = 'none';
+        pointsInput.focus();
+      } else {
+        const points = parseInt(pointsInput.value);
+        if (points > 0) {
+          removeUserPoints(selectedUserForModal.uid, points);
+          pointsInput.value = '';
+          pointsInput.style.display = 'none';
+        }
+      }
+    });
+    
+    addBdtBtn.addEventListener('click', () => {
+      if (bdtInput.style.display === 'none') {
+        bdtInput.style.display = 'block';
+        pointsInput.style.display = 'none';
+        bdtInput.focus();
+      } else {
+        const amount = parseInt(bdtInput.value);
+        if (amount > 0) {
+          addUserBdt(selectedUserForModal.uid, amount);
+          bdtInput.value = '';
+          bdtInput.style.display = 'none';
+        }
+      }
+    });
+    
+    deleteAccountBtn.addEventListener('click', () => {
+      if (confirm('Are you sure you want to delete this account? This cannot be undone.')) {
+        deleteUserAccount(selectedUserForModal.uid);
+      }
     });
 
     // Update Profile Level Display
@@ -1639,7 +2275,7 @@
       
       const points = currentUserData.points || 0;
       let currentLevel = 1;
-      let nextLevelThreshold = levelThresholds[1];
+      let nextLevelThreshold = levelThresholds[0];
       
       // Determine current level
       for (let i = levelThresholds.length - 1; i >= 0; i--) {
@@ -1656,7 +2292,7 @@
       
       // Update progress bar
       const progressPercentage = currentLevel < levelThresholds.length 
-        ? ((points - levelThresholds[currentLevel - 1]) / (nextLevelThreshold - levelThresholds[currentLevel - 1])) * 100
+        ? ((points - (currentLevel > 1 ? levelThresholds[currentLevel - 2] : 0)) / (nextLevelThreshold - (currentLevel > 1 ? levelThresholds[currentLevel - 2] : 0))) * 100
         : 100;
       progressBar.style.width = `${progressPercentage}%`;
       
@@ -1666,6 +2302,213 @@
       level3Reward.textContent = points >= levelThresholds[2] ? '✓' : '✗';
       level4Reward.textContent = points >= levelThresholds[3] ? '✓' : '✗';
       level5Reward.textContent = points >= levelThresholds[4] ? '✓' : '✗';
+    }
+
+    // Load Balance Info
+    function loadBalanceInfo() {
+      if (!currentUser || !currentUserData) return;
+      
+      const points = currentUserData.points || 0;
+      const balance = currentUserData.balance || 0;
+      
+      pointsDisplayBalance.textContent = `${points} Points`;
+      balanceAmount.textContent = `${balance} BDT`;
+      
+      // Enable/disable convert button based on points
+      convertBtn.disabled = points < MIN_POINTS_FOR_CONVERSION;
+    }
+
+    // Load Withdraw Info
+    function loadWithdrawInfo() {
+      if (!currentUser || !currentUserData) return;
+      
+      const balance = currentUserData.balance || 0;
+      
+      withdrawBalanceAmount.textContent = `${balance} BDT`;
+      
+      // Check if user has pending withdrawal
+      database.ref('withdrawals').orderByChild('userId').equalTo(currentUser.uid).once('value')
+        .then(snapshot => {
+          if (snapshot.exists()) {
+            let hasPending = false;
+            snapshot.forEach(child => {
+              const withdrawal = child.val();
+              if (withdrawal.status === 'pending') {
+                hasPending = true;
+              }
+            });
+            
+            if (hasPending) {
+              withdrawForm.style.display = 'none';
+              withdrawMessage.style.display = 'block';
+            } else {
+              withdrawForm.style.display = 'block';
+              withdrawMessage.style.display = 'none';
+            }
+          } else {
+            withdrawForm.style.display = 'block';
+            withdrawMessage.style.display = 'none';
+          }
+        });
+      
+      // Enable/disable withdraw button based on balance
+      withdrawBtn.disabled = (balance < MIN_WITHDRAW_AMOUNT);
+    }
+
+    // Convert Points to BDT
+    function convertPointsToBdt() {
+      if (!currentUser || !currentUserData) return;
+      
+      const points = currentUserData.points || 0;
+      const currentBalance = currentUserData.balance || 0;
+      
+      if (points < MIN_POINTS_FOR_CONVERSION) {
+        alert(`You need at least ${MIN_POINTS_FOR_CONVERSION} points to convert to BDT`);
+        return;
+      }
+      
+      // Calculate BDT amount (500 points = 150 BDT)
+      const bdtAmount = 150;
+      const newPoints = points - MIN_POINTS_FOR_CONVERSION;
+      const newBalance = currentBalance + bdtAmount;
+      
+      // Update user data
+      database.ref('users/' + currentUser.uid).update({
+        points: newPoints,
+        balance: newBalance
+      })
+      .then(() => {
+        currentUserData.points = newPoints;
+        currentUserData.balance = newBalance;
+        
+        // Update display
+        pointsDisplayBalance.textContent = `${newPoints} Points`;
+        balanceAmount.textContent = `${newBalance} BDT`;
+        convertBtn.disabled = newPoints < MIN_POINTS_FOR_CONVERSION;
+        
+        // Record history
+        recordHistory({
+          type: 'conversion',
+          points: -MIN_POINTS_FOR_CONVERSION,
+          details: `Converted ${MIN_POINTS_FOR_CONVERSION} points to ${bdtAmount} BDT`,
+          timestamp: firebase.database.ServerValue.TIMESTAMP
+        });
+        
+        recordHistory({
+          type: 'balance',
+          amount: bdtAmount,
+          details: `Added ${bdtAmount} BDT from points conversion`,
+          timestamp: firebase.database.ServerValue.TIMESTAMP
+        });
+        
+        alert(`Successfully converted ${MIN_POINTS_FOR_CONVERSION} points to ${bdtAmount} BDT`);
+      })
+      .catch(error => {
+        console.error('Error converting points:', error);
+        alert('Failed to convert points. Please try again.');
+      });
+    }
+
+    // Request Withdraw
+    function requestWithdraw() {
+      if (!currentUser || !currentUserData) return;
+      
+      const balance = currentUserData.balance || 0;
+      const method = withdrawMethod.value;
+      const number = withdrawNumber.value;
+      
+      if (!method || !number) {
+        alert('Please select a withdrawal method and enter your account number');
+        return;
+      }
+      
+      if (balance < MIN_WITHDRAW_AMOUNT) {
+        alert(`You need at least ${MIN_WITHDRAW_AMOUNT} BDT to withdraw`);
+        return;
+      }
+      
+      // Create withdrawal request
+      const withdrawalData = {
+        userId: currentUser.uid,
+        username: currentUserData.username,
+        name: currentUserData.name,
+        method: method,
+        number: number,
+        amount: MIN_WITHDRAW_AMOUNT,
+        status: 'pending',
+        timestamp: firebase.database.ServerValue.TIMESTAMP
+      };
+      
+      database.ref('withdrawals').push(withdrawalData)
+        .then(() => {
+          // Show pending message
+          withdrawForm.style.display = 'none';
+          withdrawMessage.style.display = 'block';
+          
+          // Record history
+          recordHistory({
+            type: 'withdrawal',
+            amount: -MIN_WITHDRAW_AMOUNT,
+            details: `Withdrawal request of ${MIN_WITHDRAW_AMOUNT} BDT via ${method} (${number})`,
+            timestamp: firebase.database.ServerValue.TIMESTAMP
+          });
+          
+          alert('Withdrawal request submitted. Admin will process it within 24 hours.');
+        })
+        .catch(error => {
+          console.error('Error submitting withdrawal:', error);
+          alert('Failed to submit withdrawal request. Please try again.');
+        });
+    }
+
+    // Load Leaderboard
+    function loadLeaderboard() {
+      database.ref('users').orderByChild('points').once('value')
+        .then((snapshot) => {
+          leaderboardList.innerHTML = '';
+          
+          if (!snapshot.exists()) {
+            leaderboardList.innerHTML = '<div class="leaderboard-item">No users found</div>';
+            return;
+          }
+          
+          const users = [];
+          snapshot.forEach(childSnapshot => {
+            const user = childSnapshot.val();
+            if (user.status === 'approved') {
+              users.push(user);
+            }
+          });
+          
+          // Sort by points (descending)
+          users.sort((a, b) => (b.points || 0) - (a.points || 0));
+          
+          // Show top 15 users
+          const topUsers = users.slice(0, 15);
+          
+          if (topUsers.length === 0) {
+            leaderboardList.innerHTML = '<div class="leaderboard-item">No users found</div>';
+            return;
+          }
+          
+          topUsers.forEach((user, index) => {
+            const leaderboardItem = document.createElement('div');
+            leaderboardItem.className = 'leaderboard-item';
+            
+            leaderboardItem.innerHTML = `
+              <div class="leaderboard-rank">${index + 1}</div>
+              <div class="leaderboard-user">
+                <div class="leaderboard-name">${user.username}</div>
+                <div class="leaderboard-points">${user.points || 0} points</div>
+              </div>
+            `;
+            
+            leaderboardList.appendChild(leaderboardItem);
+          });
+        })
+        .catch((error) => {
+          console.error('Error loading leaderboard:', error);
+        });
     }
 
     // Add points to user
@@ -1680,6 +2523,11 @@
         .then(() => {
           currentUserData.points = newPoints;
           updateProfileLevelDisplay();
+          
+          // Update balance display if on that page
+          if (balanceContainer.style.display === 'block') {
+            loadBalanceInfo();
+          }
           
           // Record the transaction in history
           recordHistory({
@@ -1796,9 +2644,16 @@
             const date = new Date(item.timestamp);
             const dateStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
             
+            let details = '';
+            if (item.type === 'balance' || item.type === 'withdrawal') {
+              details = `${item.details || ''} ${item.amount ? `(${item.amount > 0 ? '+' : ''}${item.amount} BDT)` : ''}`;
+            } else {
+              details = `${item.details || ''} ${item.points ? `(${item.points > 0 ? '+' : ''}${item.points} points)` : ''}`;
+            }
+            
             historyEntry.innerHTML = `
               <div class="history-type">${getHistoryTypeLabel(item.type)}</div>
-              <div class="history-details">${item.details || ''} ${item.points ? `(+${item.points} points)` : ''}</div>
+              <div class="history-details">${details}</div>
               <div class="history-date">${dateStr}</div>
             `;
             
@@ -1813,6 +2668,9 @@
         'referral': 'Referral Bonus',
         'referral_signup': 'Referral Signup',
         'work': 'Work Completed',
+        'conversion': 'Points Conversion',
+        'balance': 'Balance Update',
+        'withdrawal': 'Withdrawal',
         'other': 'Points Added'
       };
       return labels[type] || type;
@@ -2021,6 +2879,7 @@
             datetime: datetime.value,
             status: 'pending', // pending, approved, rejected
             points: 0, // Initialize points to 0
+            balance: 0, // Initialize balance to 0
             createdAt: firebase.database.ServerValue.TIMESTAMP,
             uid: user.uid
           };
@@ -2108,9 +2967,6 @@
     function showDashboard(userData) {
       dashboardUsername.textContent = `Welcome, ${userData.username}`;
       showContainer(dashboardContainer);
-      
-      // For testing - add some points automatically
-      // setTimeout(() => addPoints(15, 'work', 'Completed test task'), 2000); // Add 15 points after 2 seconds (for testing)
     }
 
     // Show Admin Panel
@@ -2143,6 +2999,12 @@
         })
         .catch((error) => {
           console.error('Error loading admin stats:', error);
+        });
+      
+      // Load pending withdrawals count
+      database.ref('withdrawals').orderByChild('status').equalTo('pending').once('value')
+        .then(snapshot => {
+          pendingWithdrawalsEl.textContent = snapshot.exists() ? snapshot.numChildren() : 0;
         });
     }
 
@@ -2230,6 +3092,24 @@
         });
     }
 
+    // Load Withdrawal Requests
+    function loadWithdrawalRequests() {
+      database.ref('withdrawals').orderByChild('status').equalTo('pending').once('value')
+        .then((snapshot) => {
+          withdrawalsList.innerHTML = '';
+          
+          if (!snapshot.exists()) {
+            withdrawalsList.innerHTML = '<p>No pending withdrawal requests</p>';
+            return;
+          }
+          
+          snapshot.forEach((childSnapshot) => {
+            const withdrawal = childSnapshot.val();
+            addWithdrawalCard(withdrawal, childSnapshot.key);
+          });
+        });
+    }
+
     // Add User Card to List
     function addUserCard(user, listElement, showActions = true) {
       const userCard = document.createElement('div');
@@ -2246,6 +3126,7 @@
           <div class="user-payment">Payment: ${user.paymentMethod} (${user.paymentNumber})</div>
           <div class="user-status ${statusClass}">${user.status}</div>
           <div class="user-points">Points: ${user.points || 0}</div>
+          <div class="user-balance">Balance: ${user.balance || 0} BDT</div>
         </div>
       `;
       
@@ -2268,6 +3149,89 @@
       listElement.appendChild(userCard);
     }
 
+    // Add Withdrawal Card to List
+    function addWithdrawalCard(withdrawal, withdrawalId) {
+      const withdrawalCard = document.createElement('div');
+      withdrawalCard.className = 'user-card';
+      
+      withdrawalCard.innerHTML = `
+        <div class="user-info">
+          <div class="user-name">${withdrawal.name} (${withdrawal.username})</div>
+          <div class="user-email">Method: ${withdrawal.method}</div>
+          <div class="user-whatsapp">Account: ${withdrawal.number}</div>
+          <div class="user-payment">Amount: ${withdrawal.amount} BDT</div>
+          <div class="user-status pending">${withdrawal.status}</div>
+        </div>
+      `;
+      
+      const actionButtons = document.createElement('div');
+      actionButtons.className = 'action-buttons';
+      actionButtons.innerHTML = `
+        <button class="action-btn approve-btn" data-withdrawal="${withdrawalId}">Approve</button>
+        <button class="action-btn reject-btn" data-withdrawal="${withdrawalId}">Reject</button>
+      `;
+      withdrawalCard.appendChild(actionButtons);
+      
+      // Add event listeners to buttons
+      withdrawalCard.querySelector('.approve-btn').addEventListener('click', () => processWithdrawal(withdrawalId, 'approved'));
+      withdrawalCard.querySelector('.reject-btn').addEventListener('click', () => processWithdrawal(withdrawalId, 'rejected'));
+      
+      withdrawalsList.appendChild(withdrawalCard);
+    }
+
+    // Process Withdrawal (approve/reject)
+    function processWithdrawal(withdrawalId, action) {
+      database.ref('withdrawals/' + withdrawalId).once('value')
+        .then(snapshot => {
+          const withdrawal = snapshot.val();
+          
+          if (action === 'approved') {
+            // Deduct balance from user
+            database.ref('users/' + withdrawal.userId).once('value')
+              .then(userSnapshot => {
+                const user = userSnapshot.val();
+                const newBalance = (user.balance || 0) - withdrawal.amount;
+                
+                // Update user balance
+                database.ref('users/' + withdrawal.userId).update({ balance: newBalance })
+                  .then(() => {
+                    // Update withdrawal status
+                    database.ref('withdrawals/' + withdrawalId).update({ status: 'approved' })
+                      .then(() => {
+                        // Record history for user
+                        recordHistoryForUser(withdrawal.userId, {
+                          type: 'withdrawal',
+                          amount: -withdrawal.amount,
+                          details: `Withdrawal of ${withdrawal.amount} BDT approved (${withdrawal.method} - ${withdrawal.number})`,
+                          timestamp: firebase.database.ServerValue.TIMESTAMP
+                        });
+                        
+                        // Reload withdrawals list
+                        loadWithdrawalRequests();
+                        loadAdminStats();
+                      });
+                  });
+              });
+          } else {
+            // Just update withdrawal status to rejected
+            database.ref('withdrawals/' + withdrawalId).update({ status: 'rejected' })
+              .then(() => {
+                // Record history for user
+                recordHistoryForUser(withdrawal.userId, {
+                  type: 'withdrawal',
+                  amount: 0,
+                  details: `Withdrawal request of ${withdrawal.amount} BDT rejected`,
+                  timestamp: firebase.database.ServerValue.TIMESTAMP
+                });
+                
+                // Reload withdrawals list
+                loadWithdrawalRequests();
+                loadAdminStats();
+              });
+          }
+        });
+    }
+
     // Approve User
     function approveUser(uid) {
       database.ref('users/' + uid).update({ status: 'approved' })
@@ -2277,6 +3241,9 @@
           loadApprovedUsers();
           loadAllUsers();
           loadAdminStats();
+          
+          // Add welcome points
+          addPointsForUser(uid, 100, 'Welcome bonus');
         })
         .catch((error) => {
           console.error('Error approving user:', error);
@@ -2300,7 +3267,171 @@
 
     // View User Details
     function viewUser(user) {
-      alert(`User Details:\n\nName: ${user.name}\nUsername: ${user.username}\nEmail: ${user.email}\nWhatsApp: ${user.whatsapp}\nStatus: ${user.status}\nPoints: ${user.points || 0}\nPayment Method: ${user.paymentMethod}\nPayment Number: ${user.paymentNumber}\nTransaction ID: ${user.transactionId}\nRegistration Date: ${new Date(user.datetime).toLocaleString()}`);
+      selectedUserForModal = user;
+      modalUserTitle.textContent = `User: ${user.username}`;
+      
+      modalUserContent.innerHTML = `
+        <p><strong>Name:</strong> ${user.name}</p>
+        <p><strong>Email:</strong> ${user.email}</p>
+        <p><strong>WhatsApp:</strong> ${user.whatsapp}</p>
+        <p><strong>Payment Method:</strong> ${user.paymentMethod} (${user.paymentNumber})</p>
+        <p><strong>Status:</strong> ${user.status}</p>
+        <p><strong>Points:</strong> ${user.points || 0}</p>
+        <p><strong>Balance:</strong> ${user.balance || 0} BDT</p>
+        <p><strong>Registered:</strong> ${new Date(user.datetime).toLocaleString()}</p>
+      `;
+      
+      showModal();
+    }
+
+    // Add Points to User (admin)
+    function addUserPoints(uid, points) {
+      database.ref('users/' + uid).once('value')
+        .then(snapshot => {
+          const user = snapshot.val();
+          const currentPoints = user.points || 0;
+          const newPoints = currentPoints + points;
+          
+          database.ref('users/' + uid).update({ points: newPoints })
+            .then(() => {
+              // Record history
+              recordHistoryForUser(uid, {
+                type: 'admin_points',
+                points: points,
+                details: `Admin added ${points} points`,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+              });
+              
+              alert(`Successfully added ${points} points to user`);
+              
+              // Refresh user lists if needed
+              if (allList.contains(document.activeElement)) {
+                loadAllUsers();
+              } else if (approvedList.contains(document.activeElement)) {
+                loadApprovedUsers();
+              }
+            });
+        });
+    }
+
+    // Remove Points from User (admin)
+    function removeUserPoints(uid, points) {
+      database.ref('users/' + uid).once('value')
+        .then(snapshot => {
+          const user = snapshot.val();
+          const currentPoints = user.points || 0;
+          const newPoints = Math.max(0, currentPoints - points);
+          
+          database.ref('users/' + uid).update({ points: newPoints })
+            .then(() => {
+              // Record history
+              recordHistoryForUser(uid, {
+                type: 'admin_points',
+                points: -points,
+                details: `Admin removed ${points} points`,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+              });
+              
+              alert(`Successfully removed ${points} points from user`);
+              
+              // Refresh user lists if needed
+              if (allList.contains(document.activeElement)) {
+                loadAllUsers();
+              } else if (approvedList.contains(document.activeElement)) {
+                loadApprovedUsers();
+              }
+            });
+        });
+    }
+
+    // Add BDT to User (admin)
+    function addUserBdt(uid, amount) {
+      database.ref('users/' + uid).once('value')
+        .then(snapshot => {
+          const user = snapshot.val();
+          const currentBalance = user.balance || 0;
+          const newBalance = currentBalance + amount;
+          
+          database.ref('users/' + uid).update({ balance: newBalance })
+            .then(() => {
+              // Record history
+              recordHistoryForUser(uid, {
+                type: 'admin_balance',
+                amount: amount,
+                details: `Admin added ${amount} BDT`,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+              });
+              
+              alert(`Successfully added ${amount} BDT to user`);
+              
+              // Refresh user lists if needed
+              if (allList.contains(document.activeElement)) {
+                loadAllUsers();
+              } else if (approvedList.contains(document.activeElement)) {
+                loadApprovedUsers();
+              }
+            });
+        });
+    }
+
+    // Delete User Account
+    function deleteUserAccount(uid) {
+      // Delete user data
+      database.ref('users/' + uid).remove()
+        .then(() => {
+          // Delete user authentication
+          auth.getUser(uid)
+            .then(() => {
+              // In a real app, you would need backend code to delete the user
+              // as client-side JavaScript can't delete users directly
+              alert('User data deleted. Note: Authentication record still exists and needs to be deleted from the Firebase console.');
+              
+              // Refresh user lists
+              loadAllUsers();
+              loadApprovedUsers();
+              loadPendingUsers();
+              loadRejectedUsers();
+              
+              hideModal();
+            })
+            .catch(error => {
+              console.error('Error getting user:', error);
+              alert('User data deleted but could not verify authentication record.');
+              
+              // Refresh user lists
+              loadAllUsers();
+              loadApprovedUsers();
+              loadPendingUsers();
+              loadRejectedUsers();
+              
+              hideModal();
+            });
+        })
+        .catch(error => {
+          console.error('Error deleting user:', error);
+          alert('Failed to delete user data');
+        });
+    }
+
+    // Add Welcome Points to User
+    function addPointsForUser(uid, points, reason) {
+      database.ref('users/' + uid).once('value')
+        .then(snapshot => {
+          const user = snapshot.val();
+          const currentPoints = user.points || 0;
+          const newPoints = currentPoints + points;
+          
+          database.ref('users/' + uid).update({ points: newPoints })
+            .then(() => {
+              // Record history
+              recordHistoryForUser(uid, {
+                type: 'system',
+                points: points,
+                details: reason,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+              });
+            });
+        });
     }
 
     // Logout Function
